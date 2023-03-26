@@ -5,8 +5,10 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "web-ext run -s dist -t chromium",
-    "lint": "eslint src"
+    "dev": "node esbuild.js",
+    "chrome": "web-ext run -s dist -t chromium",
+    "lint": "eslint src",
+    "build": "NODE_ENV=production node esbuild.js"
   },
   "keywords": [],
   "author": "",

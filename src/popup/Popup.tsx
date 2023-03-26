@@ -1,10 +1,6 @@
 import browser from 'webextension-polyfill';
 import { MantineProvider, Button } from '@mantine/core';
-
-export type SendMessageWithValue<T> = {
-  action: string;
-  value: T;
-};
+import { SendMessageWithValue } from '../types';
 
 const sendPrompt = async (prompt: string): Promise<void> => {
   const [currentTab] = await browser.tabs.query({ active: true, currentWindow: true });
