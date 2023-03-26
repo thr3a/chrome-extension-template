@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "web-ext run -s dist -t chromium",
-    "lint": "eslint ./src"
+    "lint": "eslint src"
   },
   "keywords": [],
   "author": "",
