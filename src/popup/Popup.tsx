@@ -1,7 +1,8 @@
-import browser from 'webextension-polyfill';
-import { MantineProvider, Button, Box, Text } from '@mantine/core';
-import { SendMessageWithValue } from '../types';
+import { Box, Button, MantineProvider, Text } from '@mantine/core';
+import '@mantine/core/styles.css';
 import { useEventListener } from '@mantine/hooks';
+import browser from 'webextension-polyfill';
+import type { SendMessageWithValue } from '../types';
 
 const sendPrompt = async (prompt: string): Promise<void> => {
   const [currentTab] = await browser.tabs.query({ active: true, currentWindow: true });
@@ -12,7 +13,7 @@ const sendPrompt = async (prompt: string): Promise<void> => {
 
   const message: SendMessageWithValue<string> = {
     action: 'send_cs',
-    value: prompt,
+    value: prompt
   };
   await browser.tabs.sendMessage(currentTab.id, message);
 };
@@ -24,14 +25,13 @@ export const Popup = () => {
   const ref = useEventListener('click', clickHandler);
 
   return (
-    <MantineProvider withGlobalStyles withNormalizeCSS
+    <MantineProvider
       theme={{
-        colorScheme: 'light',
         defaultRadius: 'xs',
-        fontFamily: '"Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif',
+        fontFamily: '"Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif'
       }}
     >
-      <Box sx={(theme) => ({minWidth: '500px', margin: theme.spacing.md})}>
+      <Box m={'md'}>
         <Text>Hello popup!</Text>
         <Button ref={ref}>クリック</Button>
       </Box>

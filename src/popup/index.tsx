@@ -1,8 +1,11 @@
-import React from 'react';
+// import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { Popup } from './Popup';
 
 const container = document.getElementById('root');
-// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-const root = createRoot(container!);
-root.render(<Popup />);
+if (container) {
+  const root = createRoot(container);
+  root.render(<Popup />);
+} else {
+  console.error('Root container not found');
+}

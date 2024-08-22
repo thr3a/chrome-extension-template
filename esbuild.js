@@ -1,22 +1,20 @@
-/* eslint-disable */
 import { context } from 'esbuild';
-import { glob } from 'glob';
 import fs from 'fs-extra';
+import { glob } from 'glob';
 
-const entryPoints = glob.sync('./src/**/*.{js,ts,tsx}');
 const isProduction = process.env.NODE_ENV === 'production';
 
 (async () => {
   const ctx = await context({
-    entryPoints,
+    entryPoints: ['js', 'ts', 'tsx'].map((x) => `src/**/*.${x}`),
     bundle: true,
-    sourcemap: (!isProduction),
+    sourcemap: !isProduction,
     outdir: 'dist',
-    target: 'es2020',
+    target: 'es2022',
     logLevel: 'info',
-    minify: (!!isProduction)
+    minify: !!isProduction
   });
-  await fs.remove('./dist');
+  // await fs.remove('./dist');
   await fs.copy('./manifest.json', './dist/manifest.json');
   await fs.copy('./src/popup/popup.html', './dist/popup/popup.html');
   await fs.copy('./src/icons', './dist/icons');
@@ -27,4 +25,3 @@ const isProduction = process.env.NODE_ENV === 'production';
     await ctx.watch();
   }
 })();
-

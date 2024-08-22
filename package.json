@@ -7,34 +7,27 @@
   "scripts": {
     "dev": "node esbuild.js",
     "chrome": "web-ext run -s dist -t chromium --start-url https://example.com/",
-    "lint": "eslint src",
+    "lint": "biome check --write src",
     "build": "NODE_ENV=production node esbuild.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@emotion/react": "^11.10.6",
-    "@mantine/core": "^6.0.4",
-    "@mantine/hooks": "^6.0.4",
-    "@tabler/icons-react": "^2.11.0",
-    "@types/node": "^18.15.10",
-    "@types/react-dom": "^18.0.11",
-    "@types/webextension-polyfill": "^0.10.0",
-    "esbuild": "^0.17.14",
-    "fs-extra": "^11.1.1",
-    "glob": "^9.3.2",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "typescript": "^5.0.2",
-    "web-ext": "^7.6.0",
-    "webextension-polyfill": "^0.10.0"
-  },
-  "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.56.0",
-    "@typescript-eslint/parser": "^5.56.0",
-    "eslint": "^8.36.0",
-    "eslint-plugin-react": "^7.32.2",
-    "eslint-plugin-react-hooks": "^4.6.0"
+    "@biomejs/biome": "^1.8.3",
+    "@mantine/core": "^7.12.1",
+    "@mantine/hooks": "^7.12.1",
+    "@tabler/icons-react": "^3.12.0",
+    "@types/node": "^22.5.0",
+    "@types/react-dom": "^18.3.0",
+    "@types/webextension-polyfill": "^0.12.0",
+    "esbuild": "^0.23.1",
+    "fs-extra": "^11.2.0",
+    "glob": "^11.0.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "typescript": "^5.5.4",
+    "web-ext": "^8.2.0",
+    "webextension-polyfill": "^0.12.0"
   }
 }
