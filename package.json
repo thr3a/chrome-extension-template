@@ -4,6 +4,9 @@
   "description": "",
   "main": "index.js",
   "type": "module",
+  "engines": {
+    "node": "22.x"
+  },
   "scripts": {
     "dev": "node esbuild.js",
     "chrome": "web-ext run -s dist -t chromium --start-url https://example.com/",
