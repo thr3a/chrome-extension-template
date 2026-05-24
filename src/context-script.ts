@@ -1,5 +1,5 @@
-import browser from 'webextension-polyfill';
 import type { Runtime } from 'webextension-polyfill';
+import browser from 'webextension-polyfill';
 import type { SendMessageWithValue } from './types';
 
 console.log('content script');

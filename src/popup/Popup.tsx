@@ -6,7 +6,7 @@ import type { SendMessageWithValue } from '../types';
 
 const sendPrompt = async (prompt: string): Promise<void> => {
   const [currentTab] = await browser.tabs.query({ active: true, currentWindow: true });
-  if (!currentTab || !currentTab.id) {
+  if (!currentTab?.id) {
     console.error('Could not find current tab');
     return;
   }
